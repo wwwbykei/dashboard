@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>제주공공와이파이 통합관제시스템</title>
+<link rel="stylesheet" href="css/style.css">
+<!--[if lt IE 9]>
+<script src="js/respond.min.js"></script>
+<script src="js/IE9.js"></script>
+<script src="js/html5shiv.js"></script>
+<![endif]-->
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script>
+function fullscreen(){
+    $( ".ico-fullscreen" ).click( function(){
+        $( ".page-dashboard" ).addClass( "fullscreen" );
+    });
+    $( ".ico-fullscreen-exit" ).click( function(){
+        $( ".page-dashboard" ).removeClass( "fullscreen" );
+    });
+};
+function statusCollapse(){
+    $( ".section-status .btn-collapse" ).click( function(){
+        $( ".section-status" ).toggleClass( "active" );
+    });
+};
+$( document ).ready( function(){
+	fullscreen();
+	statusCollapse();
+	$( ".carousel" ).slick({
+		arrows: true,
+		dots: false,
+    	autoplay: true,
+		autoplaySpeed: 2000,
+		infinite: true,
+	    vertical: true,
+	    slidesToShow: 2,
+	    slidesToScroll: 2,
+	    verticalSwiping: true
+	});
+});
+</script>
+</head>
+
+<body class="page-dashboard">
+
+<header class="dashboard-header">
+	<div>
+		<img src="images/logo-symbol.png" alt="">
+		<img src="images/logo-wordmark.png" alt="Wi-Fi 통합관제시스템">
+	</div>
+	<div>
+		<span>2020.11.10 (화) 09:02 AM</span>
+		<button type="button" class="btn ico-fullscreen">전체화면</button>
+		<button type="button" class="btn ico-fullscreen-exit">전체화면 종료</button>
+	</div>
+</header>
+
+<div class="dashboard-body">
+	<div class="body-left">
+		<ul class="section-organization">
+			<li>
+				<ul>
+					<li><i class="ico-server-1"></i><p>방화벽&#35;1</p></li>
+					<li class="error"><i class="ico-server-1"></i><p>방화벽&#35;2</p></li><!--문제가 있는 경우 'error' 클래스 추가-->
+				</ul>
+				<ul>
+					<li><i class="ico-server-2"></i><p>웹방화벽&#35;1</p></li>
+					<li><i class="ico-server-2"></i><p>웹방화벽&#35;2</p></li>
+				</ul>
+				<ul>
+					<li><i class="ico-server-3"></i><p>L4스위치&#35;1</p></li>
+					<li><i class="ico-server-3"></i><p>L4스위치&#35;2</p></li>
+				</ul>
+				<ul>
+					<li><i class="ico-server-4"></i><p>AAA&#35;1</p></li>
+					<li><i class="ico-server-4"></i><p>AAA&#35;2</p></li>
+					<li><i class="ico-server-4"></i><p>WAS&#35;1</p></li>
+					<li><i class="ico-server-4"></i><p>WAS&#35;2</p></li>
+					<li><i class="ico-server-4"></i><p>AAA-OAM</p></li>
+					<li><i class="ico-server-4"></i><p>Backup Svr</p></li>
+				</ul>
+				<ul>
+					<li><i class="ico-server-5"></i><p>DB L2&#35;1</p></li>
+					<li><i class="ico-server-5"></i><p>DB L2&#35;2</p></li>
+				</ul>
+				<ul>
+					<li><i class="ico-server-6"></i><p>AAA-DB&#35;1</p></li>
+					<li><i class="ico-server-6"></i><p>AAA-DB&#35;2</p></li>
+				</ul>
+				<h3>통합인증시스템</h3>
+			</li>
+			<li>
+				<ul>
+					<li><i class="ico-server-3"></i><p>통합관제 L2</p></li>
+				</ul>
+				<ul>
+					<li><i class="ico-server-4"></i><p>관제 AP</p></li>
+					<li><i class="ico-server-4"></i><p>관제 DB</p></li>
+					<li><i class="ico-server-4"></i><p>관제 대시보드</p></li>
+				</ul>
+				<h3>통합관제시스템</h3>
+			</li>
+			<li>
+				<ul>
+					<li><i class="ico-server-3"></i><p>홈페이지 L2</p></li>
+				</ul>
+				<ul>
+					<li><i class="ico-server-4"></i><p>와이파이 Web</p></li>
+					<li><i class="ico-server-4"></i><p>와이파이 DB</p></li>
+				</ul>
+				<h3>와이파이홈페이지</h3>
+			</li>
+		</ul><!--//section-organization-->
+		<ul class="section-score">
+			<li class="score-total">
+				<h5 class="section-title">전체 AP</h5>
+				<dl>
+					<dt>장애</dt>
+					<dd class="text-red">50</dd><!--값이 '0'인 경우 'opacity-40' 클래스 추가-->
+				</dl>
+				<dl>
+					<dt>대기</dt>
+					<dd class="text-yellow opacity-40">0</dd>
+				</dl>
+				<dl>
+					<dt>전체</dt>
+					<dd>3,235</dd>
+				</dl>
+			</li>
+			<li class="score-fixed">
+				<table class="table-score">
+					<thead>
+						<tr>
+							<th>고정형 AP</th>
+							<th>장애</th>
+							<th>전체</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th><span class="bullet-red">RUCKUS</span></th>
+							<td class="text-red">12</td><!--값이 '0'인 경우 'opacity-40' 클래스 추가-->
+							<td>1,200</td>
+						</tr>
+						<tr>
+							<th><span class="bullet-red">RUCKUS</span></th>
+							<td class="text-red">18</td>
+							<td>1,104</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>&nbsp;</th>
+							<td class="text-red">18</td>
+							<td>2,304</td>
+						</tr>
+					</tfoot>
+				</table>
+			</li>
+			<li class="score-mobile">
+				<table class="table-score">
+					<thead>
+						<tr>
+							<th>이동형 AP</th>
+							<th>장애</th>
+							<th>대기</th>
+							<th>전체</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th><span class="bullet-red">시내외버스</span></th>
+							<td class="text-red">12</td>
+							<td class="text-yellow">12</td>
+							<td>1,200</td>
+						</tr>
+						<tr>
+							<th><span class="bullet-red">우도마을버스</span></th>
+							<td class="text-red">12</td>
+							<td class="text-yellow">12</td>
+							<td>1,200</td>
+						</tr>
+						<tr>
+							<th><span class="bullet-green">공항리무진</span></th>
+							<td class="text-red opacity-40">0</td>
+							<td class="text-yellow opacity-40">0</td>
+							<td>1,200</td>
+						</tr>
+						<tr>
+							<th><span class="bullet-green">관광지 순환버스</span></th>
+							<td class="text-red opacity-40">0</td>
+							<td class="text-yellow opacity-40">0</td>
+							<td>1,200</td>
+						</tr>
+						<tr>
+							<th><span class="bullet-red">시티투어버스</span></th>
+							<td class="text-red">12</td>
+							<td class="text-yellow">12</td>
+							<td>1,200</td>
+						</tr>
+						<tr>
+							<th><span class="bullet-red">유도항선</span></th>
+							<td class="text-red">12</td>
+							<td class="text-yellow">12</td>
+							<td>1,200</td>
+						</tr>
+						<tr>
+							<th><span class="bullet-red">기타 (Book 버스 등)</span></th>
+							<td class="text-red">12</td>
+							<td class="text-yellow">12</td>
+							<td>1,200</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>&nbsp;</th>
+							<td class="text-red">18</td>
+							<td class="text-yellow">12</td>
+							<td>2,304</td>
+						</tr>
+					</tfoot>
+				</table>
+			</li>
+		</ul><!--//section-score-->
+		<ul class="section-error">
+			<li>
+				<h5 class="section-title">고정형 AP</h5>
+				<ul class="carousel">
+					<li>
+						<h6><span class="bold">[AEROHIVE]</span>삼성혈 문화의 거리<span class="text-red">장애</span></h6>
+						<p><i class="ico-clock"></i>2020-12-20 10:06:38<span>1시간 30분 전</span></p>
+					</li>
+					<li>
+						<h6><span class="bold">[RUCKUS]</span>교래자연휴양림<span class="text-yellow">대기</span></h6>
+						<p><i class="ico-clock"></i>2020-12-20 10:06:38<span>1시간 30분 전</span></p>
+					</li>
+					<li>
+						<h6><span class="bold">[AEROHIVE]</span>삼성혈 문화의 거리<span class="text-red">장애</span></h6>
+						<p><i class="ico-clock"></i>2020-12-20 10:06:38<span>1시간 30분 전</span></p>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h5 class="section-title">이동형 AP</h5>
+				<ul class="carousel">
+					<li>
+						<h6><span class="bold">[시내외버스]</span>제주78자 2345<span class="text-red">장애</span></h6>
+						<p><i class="ico-clock"></i>2020-12-20 10:06:38<span>1시간 30분 전</span></p>
+					</li>
+					<li>
+						<h6><span class="bold">[우도마을버스]</span>제주78자 2345<span class="text-red">장애</span></h6>
+						<p><i class="ico-clock"></i>2020-12-20 10:06:38<span>1시간 30분 전</span></p>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h5 class="section-title">내부 시스템</h5>
+				<ul class="carousel">
+					<li>
+						<h6><span class="bold">[서버]</span>관제 WEB<span class="text-red">장애</span></h6>
+						<p><i class="ico-clock"></i>2020-12-20 10:06:38<span>1시간 30분 전</span></p>
+					</li>
+				</ul>
+			</li>
+		</ul><!--//section-error-->
+	</div><!--//body-left-->
+	<div class="section-status">
+		<button type="button" class="btn-collapse"><i></i>장비 상태</button>
+		<ul>
+			<li>
+				<h5 class="section-title">네트워크 &#47; 보안장비군</h5>
+				<ul>
+					<li>
+						<h6>방화벽&#35;1</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>방화벽&#35;2</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>웹방화벽&#35;1</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>웹방화벽&#35;2</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>L4스위치&#35;1</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>L4스위치&#35;1</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h5 class="section-title">인증시스템 서버군</h5>
+				<ul>
+					<li>
+						<h6>AAA서버&#35;1</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>AAA서버&#35;2</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>WAS서버&#35;1</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>WAS서버&#35;2</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>DB서버&#35;1</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>DB서버&#35;2</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>OAM서버</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<h5 class="section-title">공공와이파이 홈페이지 시스템서버군</h5>
+				<ul>
+					<li>
+						<h6>서버</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<h6>OAM서버</h6>
+						<div>
+							<dl>
+								<dt>트래픽</dt>
+								<dd><span style="width:100%"></span></dd><!--style에 '%'로 값을 넣어주세요-->
+							</dl>
+							<dl>
+								<dt>CPU</dt>
+								<dd><span style="width:54%"></span></dd>
+							</dl>
+							<dl>
+								<dt>메모리</dt>
+								<dd><span style="width:0%"></span></dd>
+							</dl>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div><!--//section-status-->
+</div><!--//dashboard-body-->
+
+</body>
+</html>

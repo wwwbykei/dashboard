@@ -1,0 +1,26 @@
+
+// Tables
+.table{width:100%;max-width:100%}
+.table-score{.table;
+	td{.w(16%);
+		&:last-child{.w(26%)}
+	}
+	thead{
+		th{
+			&:first-child{.tl}
+			&:not(:first-child){.tr;.opacity(.4)}
+		}
+	}
+	tbody{
+		th,td{.pt(16px)}
+		th{.tl;.bold}
+		td{.tr;.montserrat}
+		tr:last-child{
+			th,td{.pb(16px)}
+		}
+	}
+	tfoot{
+		th,td{.pt(16px);.bt}
+		td{.tr;.bold;.montserrat}
+	}
+}

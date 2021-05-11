@@ -1,0 +1,30 @@
+
+// Utilities
+.dp-table{display:table;
+	> *{display:table-cell}
+}
+.horiz-center{.rel;.fr;left:-50%;
+	> *{.rel;.fl;left:50%}
+	.btn{.mrl(auto)}
+}
+.vert-middle{
+	&:before,> *{.in-block;.valign}
+	&:before{content:'';height:100%}
+}
+.vert-middle-abs(@height){.abs;top:50%;.mt( ( -@height / 2 ) )}
+.bu-dot(@color:#eee,@size:10px,@top:50%){.rel;.pl(26px);
+	&:before{content:'';.block;.abs;top:@top;left:0;width:@size;height:@size;.mt(-@size/2);.radius-oval;.bg(@color)}
+}
+.bullet-red{.bu-dot(@red)}
+.bullet-green{.bu-dot(@green)}
+.translate(@x; @y) {
+	-webkit-transform: translate(@x, @y);
+		-ms-transform: translate(@x, @y); // IE9 only
+		 -o-transform: translate(@x, @y);
+			transform: translate(@x, @y);
+}
+.transition(@transition) {
+	-webkit-transition: @transition;
+		 -o-transition: @transition;
+			transition: @transition;
+}
