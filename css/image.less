@@ -1,8 +1,9 @@
 
 // Image, Icon, Video
 img{max-width:100%;height:auto}
-.ico-fullscreen{.bgimg('ico-fullscreen.png',50%,50%);.bgs(14px)}
-.ico-fullscreen-exit{.bgimg('ico-fullscreen-exit.png',50%,50%);.bgs(14px)}
+.ico-fullscreen{.bgimg('ico-fullscreen.png',50%,50%);.bgs(14px);
+	&.active{.bgimg('ico-fullscreen-exit.png',50%,50%)}
+}
 .ico-clock{.bgimg('ico-clock.png',50%,50%);.bgs}
 .ico-triangle-up{.bgimg('ico-triangle-up.png',50%,50%);.bgs(12px)}
 .ico-triangle-down{.bgimg('ico-triangle-down.png',50%,50%);.bgs(12px)}

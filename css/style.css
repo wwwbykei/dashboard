@@ -21,11 +21,10 @@ img {
   background-repeat: no-repeat;
   background-size: 14px;
 }
-.ico-fullscreen-exit {
+.ico-fullscreen.active {
   background-image: url("../images/ico-fullscreen-exit.png");
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: 14px;
 }
 .ico-clock {
   background-image: url("../images/ico-clock.png");
@@ -748,12 +747,6 @@ a {
 }
 .page-dashboard.fullscreen .ico-fullscreen {
   display: none;
-}
-.page-dashboard.fullscreen .dashboard-body {
-  position: absolute;
-  top: 72px;
-  bottom: 0;
-  width: 100%;
 }
 .page-dashboard:not(.fullscreen) .ico-fullscreen-exit {
   display: none;
